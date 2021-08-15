@@ -1,32 +1,5 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@GloriaOliv 
-neylsoncrepalde
-/
-edc-mod1-exercise-igti
-1
-129
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-edc-mod1-exercise-igti/.github/workflows/deploy.yaml
-@neylsoncrepalde
-neylsoncrepalde apenas o apply na esteira de deploy
-Latest commit 92aef44 15 days ago
- History
- 1 contributor
-41 lines (33 sloc)  912 Bytes
-  
+# Criacao do arquivo de Deploy
+
 name: Deploy
 
 on:

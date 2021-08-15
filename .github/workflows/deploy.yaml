@@ -1,8 +1,37 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@GloriaOliv 
+neylsoncrepalde
+/
+edc-mod1-exercise-igti
+1
+129
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+edc-mod1-exercise-igti/.github/workflows/deploy.yaml
+@neylsoncrepalde
+neylsoncrepalde apenas o apply na esteira de deploy
+Latest commit 92aef44 15 days ago
+ History
+ 1 contributor
+41 lines (33 sloc)  912 Bytes
+  
 name: Deploy
 
 on:
   push:
-       branches: [master]
+    branches: [master]
 
 jobs:
   deploy:
@@ -10,12 +39,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/actions-checkout@v2
-    
+    - uses: actions/checkout@v2
+
     - name: Set up Python 3.8
-      uses: setup-python@v2
-    with:
-      python-version: 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
 
     - name: HashiCorp - Setup Terraform
       uses: hashicorp/setup-terraform@v1.2.1
@@ -27,6 +56,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
 
+
     - name: IaC Apply
       env:
         COMMAND_IAC: terraform
@@ -34,5 +64,4 @@ jobs:
         cd infrastructure
         $COMMAND_IAC init
         $COMMAND_IAC validate
-        $COMMAND_IAC plan
         $COMMAND_IAC apply -auto-approve
